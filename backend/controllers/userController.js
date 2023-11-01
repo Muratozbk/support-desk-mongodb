@@ -24,4 +24,3 @@ module.exports = {
     registerUser,
     loginUser
 }
-// 122

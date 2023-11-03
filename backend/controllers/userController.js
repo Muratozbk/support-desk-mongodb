@@ -79,7 +79,6 @@ const getMe = asyncHandler(async (req, res) => {
     }
     res.status(200).json(user)
 })
-// 126
 
 //Genereate token
 const generateToken = (id) => {

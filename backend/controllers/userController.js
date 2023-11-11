@@ -80,7 +80,7 @@ const getMe = asyncHandler(async (req, res) => {
     res.status(200).json(user)
 })
 
-//Genereate token
+//Generate token
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d'

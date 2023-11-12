@@ -2,12 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import ticketService from './ticketService'
 
 const initialState = {
-    tickets: [],
-    ticket: {},
-    isError: false,
-    isSuccess: false,
-    isLoading: false,
-    message: ''
+    tickets: null,
+    ticket: null
 };
 
 //create a new ticket
@@ -43,6 +39,19 @@ export const getTickets = createAsyncThunk('tickets/getAll',
             return thunkApi.rejectWithValue(message)
         }
     });
+
+// Get user ticket
+export const getTicket = createAsyncThunk(
+    'tickets/get',
+    async (ticketId, thunkAPI) => {
+        try {
+            const token = thunkAPI.getState().auth.user.token
+            return await ticketService.getTicket(ticketId, token)
+        } catch (error) {
+
+        }
+    }
+)
 
 export const ticketSlice = createSlice({
     name: 'ticket',

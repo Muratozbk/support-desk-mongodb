@@ -48,4 +48,3 @@ function Tickets() {
 }
 
 export default Tickets;
-// 142

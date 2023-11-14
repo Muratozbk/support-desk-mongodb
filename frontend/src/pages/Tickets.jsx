@@ -6,24 +6,16 @@ import BackButton from '../components/BackButton';
 import TicketItem from "../components/TicketItem";
 
 function Tickets() {
-    const { tickets, isLoading, isSuccess } = useSelector((state) =>
+    const { tickets } = useSelector((state) =>
         state.tickets);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        return () => {
-            if (isSuccess) {
-                dispatch(reset())
-            }
-        }
-    }, [dispatch, isSuccess]);
-
-    useEffect(() => {
         dispatch(getTickets())
     }, [dispatch]);
 
-    if (isLoading) {
+    if (!tickets) {
         return <Spinner />;
     }
 

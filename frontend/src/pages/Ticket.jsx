@@ -66,5 +66,5 @@ function Ticket() {
         </div>
     );
 }
-// 145
+
 export default Ticket;

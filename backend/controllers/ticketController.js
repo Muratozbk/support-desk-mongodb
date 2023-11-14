@@ -6,11 +6,8 @@ const Ticket = require('../models/ticketModel');
 //@route GET /api/tickets
 //@access private
 const getTickets = asyncHandler(async (req, res) => {
-    // Get user using the id in the JWT
-
     const tickets = await Ticket.find({ user: req.user.id })
-
-    res.status(200).json(tickets);
+    res.status(200).json(tickets)
 });
 
 //@desc get user ticket
@@ -100,8 +97,8 @@ const updateTicket = asyncHandler(async (req, res) => {
 
 module.exports = {
     getTickets,
-    createTicket,
     getTicket,
+    createTicket,
     deleteTicket,
     updateTicket
 }

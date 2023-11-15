@@ -23,4 +23,3 @@ router
     .put(protect, updateTicket)
 
 module.exports = router
-
